@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista de Animales</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f8ff;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .animales-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .animal {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .animal h3 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    .animal p {
+      margin: 5px 0;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Animales</h1>
+  <div class="animales-container" id="animales"></div>
+
+  <script>
+    const animales = [
+      { nombre: "León", especie: "Panthera leo", hábitat: "Sabana", alimentación: "Carnívoro" },
+      { nombre: "Elefante", especie: "Loxodonta africana", hábitat: "Sabana/Bosques", alimentación: "Herbívoro" },
+      { nombre: "Oso polar", especie: "Ursus maritimus", hábitat: "Ártico", alimentación: "Carnívoro" },
+      { nombre: "Canguro", especie: "Macropus", hábitat: "Praderas australianas", alimentación: "Herbívoro" },
+      { nombre: "Águila calva", especie: "Haliaeetus leucocephalus", hábitat: "Bosques y montañas", alimentación: "Carnívoro" },
+      { nombre: "Pingüino emperador", especie: "Aptenodytes forsteri", hábitat: "Antártida", alimentación: "Piscívoro" },
+      { nombre: "Delfín", especie: "Delphinidae", hábitat: "Océanos", alimentación: "Carnívoro (peces)" },
+      { nombre: "Jirafa", especie: "Giraffa camelopardalis", hábitat: "Sabana", alimentación: "Herbívoro" },
+      { nombre: "Lobo gris", especie: "Canis lupus", hábitat: "Bosques y tundras", alimentación: "Carnívoro" }
+    ];
+
+    const contenedor = document.getElementById("animales");
+
+    animales.map((animal) => {
+      const div = document.createElement("div");
+      div.className = "animal";
+      div.innerHTML = `
+        <h3>${animal.nombre}</h3>
+        <p><strong>Especie:</strong> ${animal.especie}</p>
+        <p><strong>Hábitat:</strong> ${animal.hábitat}</p>
+        <p><strong>Alimentación:</strong> ${animal.alimentación}</p>
+      `;
+      contenedor.appendChild(div);
+    });
+  </script>
+</body>
+</html>
+
